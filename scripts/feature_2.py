@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 
+# data = etl.select(data, lambda row: row["parsed_time"] is not None and row[1] == "W")
+# ...
+# result.append({"feature_name": "withdrawal_count", "timestamp": start_time, "value": len(current_window)})
+
+
 import typer
 import petl as etl
 from datetime import datetime, timedelta
@@ -57,7 +62,7 @@ def extract_feature_0(
         # Filter rows with valid timestamps
         typer.echo("Filtering valid rows...")
         filter_task = progress.add_task("[cyan]Filtering rows...", total=None)
-        data = etl.select(data, lambda row: row["parsed_time"] is not None)
+        data = etl.select(data, lambda row: row["parsed_time"] is not None and row[1] == "W")
         progress.update(filter_task, completed=True)
 
         # Sort the data by parsed timestamp
@@ -75,7 +80,7 @@ def extract_feature_0(
         for row in data.dicts():
             if row['parsed_time'] >= start_time + timedelta(seconds=window):
                 # Store the count for the completed time window
-                result.append({"feature_name": "update_count", "timestamp": start_time, "value": len(current_window)})
+                result.append({"feature_name": "withdrawal_count", "timestamp": start_time, "value": len(current_window)})
                 # Advance the window
                 start_time += timedelta(seconds=window)
                 current_window = []
@@ -86,7 +91,7 @@ def extract_feature_0(
 
         # Append the remaining data for the last time window
         if current_window:
-            result.append({"feature_name": "update_count", "timestamp": start_time, "value": len(current_window)})
+            result.append({"feature_name": "withdrawal_count", "timestamp": start_time, "value": len(current_window)})
 
         # Write the results to the output file
         typer.echo(f"Writing results to output file: {output}")
