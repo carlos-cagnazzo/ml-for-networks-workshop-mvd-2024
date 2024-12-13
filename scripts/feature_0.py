@@ -43,7 +43,7 @@ def extract_feature_0(
     # Filter rows with valid timestamps
     data = etl.select(data, lambda row: row["parsed_time"] is not None)
     
-    # Print first few rows after filtering
+    # Print first few rows after filtering invalid timestamps
     print("First rows after filtering invalid timestamps:")
     print(etl.look(data, 5))
     

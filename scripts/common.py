@@ -4,11 +4,11 @@ import typer
 from rich.progress import Progress
 import petl as etl
 
-def read_input(input_file: str, head: int = None):
+def read_input(input_file: str, head: int = None, delimiter: str = '|'):
     """
-    Reads the input BGP data file with PETL.
+    Reads the input BGP data file with PETL, using the specified delimiter.
     """
-    data = etl.fromcsv(input_file)
+    data = etl.fromcsv(input_file, delimiter=delimiter)  # Explicitly set delimiter to '|'
     if head:
         data = etl.head(data, head)
     return data
