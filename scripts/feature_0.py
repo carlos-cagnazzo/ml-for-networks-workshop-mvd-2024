@@ -35,7 +35,7 @@ def extract_feature_0(
             start_time = datetime.strptime(start_time, "%Y-%m-%d %H:%M:%S")
         else:
             typer.echo("Start time not provided; using earliest timestamp in the data.")
-            earliest_timestamp = etl.min(data, 2)  # Assuming the 3rd column is the timestamp
+            earliest_timestamp = min(etl.values(data, 2))  # Assuming the 3rd column is the timestamp
             start_time = datetime.fromtimestamp(float(earliest_timestamp.split('.')[0]))
         typer.echo(f"Using start time: {start_time}")
 
