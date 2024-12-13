@@ -1,0 +1,11 @@
+petl
+rich
+typer
+jupyter
+notebook
+numpy
+matplotlib
+seaborn
+pandas
+scikit-learn
+
