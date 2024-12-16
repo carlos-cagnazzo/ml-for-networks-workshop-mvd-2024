@@ -2,14 +2,25 @@
 
 This project provides a set of Python scripts to extract features from BGP (Border Gateway Protocol) update data, enabling anomaly detection and further analysis. The scripts process BGP data in configurable time windows and generate feature files for metrics such as update counts, announcements, and withdrawals.
 
-## Features
+All scripts have a common command line and some common features like:
+
+- Configurable **time windows** and **starting timestamps** ensure consistency across feature files.
+- Progress bars and feedback during processing for large datasets.
+- Designed for scalability with PETL and Rich libraries.
+
+This project utilizes BGP data sourced from the RIPE NCC's Routing Information Service (RIS). RIPE RIS provides publicly available, high-quality BGP routing data collected from a global network of Remote Route Collectors (RRCs). These datasets serve as a critical resource for researchers and engineers in understanding Internet routing dynamics and detecting anomalies.
+
+I acknowledge and thank the RIPE NCC for maintaining and sharing the RIS data, which has been instrumental in the development of this project. For more information about RIPE RIS and access to their datasets, visit [https://ris.ripe.net](https://ris.ripe.net). 
+
+
+You can include this in the README under a **Data Source** or **Acknowledgments** section. Let me know if you’d like help with placement or additional edits! 🚀
+
+
+## Features Currently Extracted from RIS Data
 
 - **Feature 0**: Total number of BGP update messages per time window.
 - **Feature 1**: Number of BGP `ANNOUNCEMENT` messages per time window.
 - **Feature 2**: Number of BGP `WITHDRAWAL` messages per time window.
-- Configurable **time windows** and **starting timestamps** ensure consistency across feature files.
-- Progress bars and feedback during processing for large datasets.
-- Designed for scalability with PETL and Rich libraries.
 
 ## Requirements
 
