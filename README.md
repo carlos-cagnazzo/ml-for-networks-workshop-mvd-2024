@@ -117,7 +117,3 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 - This project uses [PETL](https://petl.readthedocs.io/), [Typer](https://typer.tiangolo.com/), and [Rich](https://rich.readthedocs.io/).
 - Inspired by the need for scalable BGP data analysis and anomaly detection.
-
----
-
-Feel free to adjust repository URLs, licensing, or acknowledgments as needed. Let me know if you'd like further changes! 🚀
