@@ -14,7 +14,7 @@ matplotlib = "*"
 seaborn = "*"
 pandas = "*"
 scikit-learn = "*"
-ipympl = "*"
+bz2 = "*"
 
 [dev-packages]
 
