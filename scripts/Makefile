@@ -10,12 +10,55 @@
 #
 
 HEAD="100000000"
-WINDOW="6"
+WINDOW="06"
 
-features_rrc05 : ../data/2005-moscow-blackout-ris-rrc05.csv
+help:
+	@echo "Makefile for producing feature csv files from bgpstream data"
+	@echo " ---- "
+	@echo "Available targets: "
+	@echo " "
+	@echo "	help: This help message:"
+	@echo "	moscow_blackout_features_rrc05 : ../data/2005-moscow-blackout-ris-rrc05.csv"
+	@echo "	equinix_leak_features_rrc11 : ../data/2017-level3-route-leak-ris-rrc11.csv"
+	@echo "	equinix_leak_features_rrc00 : ../data/2017-level3-route-leak-ris-rrc00.csv"
+
+
+moscow_blackout_features_rrc05 : ../data/2005-moscow-blackout-ris-rrc05.csv
 	./feature_0.py --input ../data/2005-moscow-blackout-ris-rrc05.csv --window $(WINDOW) --head $(HEAD) --output ../features/2005-moscow-blackout/w06s/feature_0_rrc05.csv
 	./feature_1.py --input ../data/2005-moscow-blackout-ris-rrc05.csv --window $(WINDOW) --head $(HEAD) --output ../features/2005-moscow-blackout/w06s/feature_1_rrc05.csv
 	./feature_2.py --input ../data/2005-moscow-blackout-ris-rrc05.csv --window $(WINDOW) --head $(HEAD) --output ../features/2005-moscow-blackout/w06s/feature_2_rrc05.csv
 	./feature_3.py --input ../data/2005-moscow-blackout-ris-rrc05.csv --window $(WINDOW) --head $(HEAD) --output ../features/2005-moscow-blackout/w06s/feature_3_rrc05.csv
 	./feature_4.py --input ../data/2005-moscow-blackout-ris-rrc05.csv --window $(WINDOW) --head $(HEAD) --output ../features/2005-moscow-blackout/w06s/feature_4_rrc05.csv
 	./feature_5.py --input ../data/2005-moscow-blackout-ris-rrc05.csv --window $(WINDOW) --head $(HEAD) --output ../features/2005-moscow-blackout/w06s/feature_5_rrc05.csv
+
+## 2017 Level3 Route Leak
+
+equinix_leak_features_rrc11 : INPUT      = "../data/2017-level3-route-leak-ris-rrc11.csv"
+equinix_leak_features_rrc11 : OUTPUT_DIR = "../features/2017-level3-leak/w$(WINDOW)s/"
+equinix_leak_features_rrc11 : HEAD       = "1000000000"
+equinix_leak_features_rrc11 : WINDOW     = "06"
+
+equinix_leak_features_rrc11 : ../data/2017-level3-route-leak-ris-rrc11.csv
+	mkdir -p $(OUTPUT_DIR)
+	./feature_0.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_0_rrc11.csv 
+	./feature_1.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_1_rrc11.csv 
+	./feature_2.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_2_rrc11.csv 
+	./feature_3.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_3_rrc11.csv 
+	./feature_4.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_4_rrc11.csv 
+	./feature_5.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_5_rrc11.csv 
+
+
+equinix_leak_features_rrc00 : INPUT      = "../data/2017-level3-route-leak-ris-rrc00.csv"
+equinix_leak_features_rrc00 : OUTPUT_DIR = "../features/2017-level3-leak/w$(WINDOW)s/"
+equinix_leak_features_rrc00 : HEAD       = "1000000000"
+equinix_leak_features_rrc00 : WINDOW     = "06"
+
+
+equinix_leak_features_rrc00 : ../data/2017-level3-route-leak-ris-rrc00.csv
+	mkdir -p $(OUTPUT_DIR)
+	./feature_0.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_0_rrc00.csv 
+	./feature_1.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_1_rrc00.csv 
+	./feature_2.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_2_rrc00.csv 
+	./feature_3.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_3_rrc00.csv 
+	./feature_4.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_4_rrc00.csv 
+	./feature_5.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_5_rrc00.csv 
