@@ -21,6 +21,7 @@ help:
 	@echo "	moscow_blackout_features_rrc05 : ../data/2005-moscow-blackout-ris-rrc05.csv"
 	@echo "	equinix_leak_features_rrc11 : ../data/2017-level3-route-leak-ris-rrc11.csv"
 	@echo "	equinix_leak_features_rrc00 : ../data/2017-level3-route-leak-ris-rrc00.csv"
+	@echo "	telstra-optus-leak_features_rrc23 : ../data/2023-telstra-optus-route-leak-ris-rrc23.csv"
 
 
 moscow_blackout_features_rrc05 : ../data/2005-moscow-blackout-ris-rrc05.csv
@@ -55,6 +56,25 @@ equinix_leak_features_rrc00 : WINDOW     = "06"
 
 
 equinix_leak_features_rrc00 : ../data/2017-level3-route-leak-ris-rrc00.csv
+	mkdir -p $(OUTPUT_DIR)
+	./feature_0.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_0_rrc00.csv 
+	./feature_1.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_1_rrc00.csv 
+	./feature_2.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_2_rrc00.csv 
+	./feature_3.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_3_rrc00.csv 
+	./feature_4.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_4_rrc00.csv 
+	./feature_5.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_5_rrc00.csv 
+
+
+# -----------------------------------------------------------------------------------------------------------------------
+# 2023 TELSTRA OPTUS ROUTE LEAK
+# -----------------------------------------------------------------------------------------------------------------------
+telstra-optus-leak_features_rrc23 : INPUT      = "../data/2023-telstra-optus-route-leak-ris-rrc23.csv"
+telstra-optus-leak_features_rrc23 : OUTPUT_DIR = "../features/2023-telstra-optus-leak/w$(WINDOW)s/"
+telstra-optus-leak_features_rrc23 : HEAD       = "50000000"
+telstra-optus-leak_features_rrc23 : WINDOW     = "06"
+
+
+telstra-optus-leak_features_rrc23 : ../data/2023-telstra-optus-route-leak-ris-rrc23.csv
 	mkdir -p $(OUTPUT_DIR)
 	./feature_0.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_0_rrc00.csv 
 	./feature_1.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_1_rrc00.csv 
