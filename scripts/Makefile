@@ -76,9 +76,9 @@ telstra-optus-leak_features_rrc23 : WINDOW     = "06"
 
 telstra-optus-leak_features_rrc23 : ../data/2023-telstra-optus-route-leak-ris-rrc23.csv
 	mkdir -p $(OUTPUT_DIR)
-	./feature_0.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_0_rrc00.csv 
-	./feature_1.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_1_rrc00.csv 
-	./feature_2.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_2_rrc00.csv 
-	./feature_3.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_3_rrc00.csv 
-	./feature_4.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_4_rrc00.csv 
-	./feature_5.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_5_rrc00.csv 
+	./feature_0.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_0_rrc23.csv 
+	./feature_1.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_1_rrc23.csv 
+	./feature_2.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_2_rrc23.csv 
+	./feature_3.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_3_rrc23.csv 
+	./feature_4.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_4_rrc23.csv 
+	./feature_5.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_5_rrc23.csv 
