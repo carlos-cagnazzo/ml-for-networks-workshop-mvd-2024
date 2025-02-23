@@ -17,11 +17,12 @@ help:
 	@echo " ---- "
 	@echo "Available targets: "
 	@echo " "
-	@echo "	help: This help message:"
-	@echo "	moscow_blackout_features_rrc05 : ../data/2005-moscow-blackout-ris-rrc05.csv"
-	@echo "	equinix_leak_features_rrc11 : ../data/2017-level3-route-leak-ris-rrc11.csv"
-	@echo "	equinix_leak_features_rrc00 : ../data/2017-level3-route-leak-ris-rrc00.csv"
+	@echo "	help: This help message"
+	@echo "	moscow_blackout_features_rrc05    : ../data/2005-moscow-blackout-ris-rrc05.csv"
+	@echo "	equinix_leak_features_rrc11       : ../data/2017-level3-route-leak-ris-rrc11.csv"
+	@echo "	equinix_leak_features_rrc00       : ../data/2017-level3-route-leak-ris-rrc00.csv"
 	@echo "	telstra-optus-leak_features_rrc23 : ../data/2023-telstra-optus-route-leak-ris-rrc23.csv"
+	@echo "	rostelecom-leak_features_rrc05    : ../data/2020-rostelecom-leak-ris-rrc05.csv "
 
 
 moscow_blackout_features_rrc05 : ../data/2005-moscow-blackout-ris-rrc05.csv
@@ -82,3 +83,21 @@ telstra-optus-leak_features_rrc23 : ../data/2023-telstra-optus-route-leak-ris-rr
 	./feature_3.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_3_rrc23.csv 
 	./feature_4.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_4_rrc23.csv 
 	./feature_5.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_5_rrc23.csv 
+
+# -----------------------------------------------------------------------------------------------------------------------
+# 2020 ROSTELECOM LEAK
+# -----------------------------------------------------------------------------------------------------------------------
+rostelecom-leak_features_rrc05 : INPUT      = "../data/2020-rostelecom-leak-ris-rrc05.csv"
+rostelecom-leak_features_rrc05 : OUTPUT_DIR = "../features/2020-rostelecom-leak/w$(WINDOW)s/"
+rostelecom-leak_features_rrc05 : HEAD       = "50000000"
+rostelecom-leak_features_rrc05 : WINDOW     = "06"
+
+
+rostelecom-leak_features_rrc05 : ../data/2020-rostelecom-leak-ris-rrc05.csv
+	mkdir -p $(OUTPUT_DIR)
+	./feature_0.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_0_rrc05.csv 
+	./feature_1.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_1_rrc05.csv 
+	./feature_2.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_2_rrc05.csv 
+	./feature_3.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_3_rrc05.csv 
+	./feature_4.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_4_rrc05.csv 
+	./feature_5.py --input $(INPUT) --window $(WINDOW) --head $(HEAD) --output $(OUTPUT_DIR)/feature_5_rrc05.csv 
