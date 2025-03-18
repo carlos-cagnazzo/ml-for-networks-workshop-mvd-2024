@@ -23,6 +23,18 @@ help:
 	@echo "	equinix_leak_features_rrc00       : ../data/2017-level3-route-leak-ris-rrc00.csv"
 	@echo "	telstra-optus-leak_features_rrc23 : ../data/2023-telstra-optus-route-leak-ris-rrc23.csv"
 	@echo "	rostelecom-leak_features_rrc05    : ../data/2020-rostelecom-leak-ris-rrc05.csv "
+	@echo "	chile_blackout_features_rrc24     : ../data/2025-chile-blackout-ris-rrc24.csv"
+
+
+# 2025 chile blackout
+
+chile_blackout_features_rrc24 : ../data/2025-chile-blackout-ris-rrc24.csv
+	./feature_0.py --input ../data/2025-chile-blackout-ris-rrc24.csv --window $(WINDOW) --head $(HEAD) --output ../features/2025-chile-blackout/w06s/feature_0_rrc24.csv
+	./feature_1.py --input ../data/2025-chile-blackout-ris-rrc24.csv --window $(WINDOW) --head $(HEAD) --output ../features/2025-chile-blackout/w06s/feature_1_rrc24.csv
+	./feature_2.py --input ../data/2025-chile-blackout-ris-rrc24.csv --window $(WINDOW) --head $(HEAD) --output ../features/2025-chile-blackout/w06s/feature_2_rrc24.csv
+	./feature_3.py --input ../data/2025-chile-blackout-ris-rrc24.csv --window $(WINDOW) --head $(HEAD) --output ../features/2025-chile-blackout/w06s/feature_3_rrc24.csv
+	./feature_4.py --input ../data/2025-chile-blackout-ris-rrc24.csv --window $(WINDOW) --head $(HEAD) --output ../features/2025-chile-blackout/w06s/feature_4_rrc24.csv
+	./feature_5.py --input ../data/2025-chile-blackout-ris-rrc24.csv --window $(WINDOW) --head $(HEAD) --output ../features/2025-chile-blackout/w06s/feature_5_rrc24.csv
 
 
 moscow_blackout_features_rrc05 : ../data/2005-moscow-blackout-ris-rrc05.csv
