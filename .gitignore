@@ -1,3 +1,6 @@
+*.cache
 .DS_Store
 Pipfile.lock
 .ipynb_checkpoints
+*.csv
+*.gz
